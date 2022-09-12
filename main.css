@@ -13,55 +13,19 @@
 body {
   color: var(--main-text-color);
   background-color: var(--main-bg-color);
-  max-height: 100vh;
-  display: flex;
-  flex-direction: nowrap;
-  justify-content: center;
   font-family: 'Roboto Mono', monospace;
-  overflow: hidden;
+  
 }
-
-.graphic {
-  min-width: 20vw;
-  min-height: 100vh;
-}
-
-.info-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 40vh;
-}
-
-/* For mobile phones */
-@media only screen and (hover: none) and (pointer: coarse) {
-  body {
-    display: absolute;
-  }
-  .graphic,
-  .info-container {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
-  .info-container {
-    background-color: var(--main-bg-color);
-    padding: 2rem;
-    width: 70vw;
-  }
-
-  h1 {
-    font-size: 72px;
-  }
-
-  p,
-  ul {
-    font-size: 32px;
-  }
+.container {
+  margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 h1 {
@@ -85,48 +49,40 @@ a {
   text-decoration: none;
 }
 
-.vertical-line {
-  width: 100%;
-  border-top: 1px solid var(--main-text-color);
-}
-
 a:hover {
   text-decoration: underline;
 }
 
-.animation {
-  animation-iteration-count: infinite;
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; 
+  height: auto;
 }
 
-#svg-graphic-green-line {
-  stroke: var(--green-color);
-  position: relative;
-  animation: slide-down-animation 6s ease-in infinite;
-}
-
-#svg-graphic-red-line {
-  stroke: var(--red-color);
-  animation: slide-down-animation 4.8s ease-in infinite;
-}
-
-#svg-graphic-blue-line {
-  stroke: var(--blue-color);
-  animation: slide-down-animation 6.8s ease-in infinite;
-}
-
-#svg-graphic-orange-line {
-  stroke: var(--orange-color);
-  animation: slide-down-animation 4s ease-in infinite;
-}
-
-@keyframes slide-down-animation {
-  0% {
-    clip-path: inset(0vh -100vw 100vh);
-  }
-  50% {
-    clip-path: inset(0 -100vw 0);
-  }
-  100% {
-    clip-path: inset(100vh -100vw -100vw 0vh);
-  }
+.avatar {
+	width: 150px;
+	height: 150px;
+	box-sizing: border-box;
+	border: 5px white solid;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
 }
