@@ -1,2 +1,2 @@
 ## Hello
-[Site](https://oddmann.github.io)
+[Link](https://oddmann.github.io)
